@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     images: ['https://xvannn07.xyz/images/logo.png'],
   },
   icons: {
-    icon: '/images/xvann_logo.png',
+    icon: '/images/logo.png',
   },
 }
 
