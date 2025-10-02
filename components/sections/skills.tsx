@@ -42,7 +42,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <AnimatedSection id="skills" title="Keahlian">
+    <AnimatedSection id="skills" title="BIDANG KEAHLIAN">
       <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
         {skills.map(({ name, icon: Icon }, idx) => (
           <li
