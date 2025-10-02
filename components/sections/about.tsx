@@ -80,7 +80,7 @@ export default function About() {
   }
 
   return (
-    <AnimatedSection id="about" title="Perkenalan">
+    <AnimatedSection id="about" title="PERKENALAN">
       <motion.div
         className="grid gap-6 md:grid-cols-5"
         variants={containerVariants}
