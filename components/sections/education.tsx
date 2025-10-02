@@ -31,7 +31,7 @@ const schools = [
 
 export default function Education() {
   return (
-    <AnimatedSection id="education" title="Pendidikan">
+    <AnimatedSection id="education" title="PENDIDIKAN">
       <div className="relative">
         {/* Enhanced timeline chain */}
         <div 
