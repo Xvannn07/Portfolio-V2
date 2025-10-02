@@ -71,7 +71,7 @@ const projects = [
 
 export default function Projects() {
 	return (
-		<AnimatedSection id="projects" title="Projek">
+		<AnimatedSection id="projects" title="PROJEK">
 			<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-stagger>
 				{projects.map((project, idx) => (
 					<Card
