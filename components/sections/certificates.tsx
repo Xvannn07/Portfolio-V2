@@ -118,7 +118,7 @@ export default function Certificates() {
 	}
 
 	return (
-		<AnimatedSection id="certificates" title="Sertifikat">
+		<AnimatedSection id="certificates" title="SERTIFIKAT">
 			<div className="relative">
 				{/* Enhanced Navigation Buttons */}
 				<motion.button
