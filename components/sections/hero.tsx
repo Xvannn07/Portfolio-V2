@@ -7,7 +7,7 @@ import { useState, useEffect } from "react" // Add React hooks
 
 export default function Hero() {
   const [textIndex, setTextIndex] = useState(0)
-  const texts = ["Seorang Pelajar", "Pengembangan Website"]
+  const texts = ["Seorang Pelajar", "Manusia Biasa", "Makan Nasi"]
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,7 +40,7 @@ export default function Hero() {
             },
           }}
         >
-          {"DESIGN • CODE • WEB •".repeat(4)}
+          {"WEB DEVELOPER • NETWORK ENGINEER • FRONT END & BACK END •".repeat(4)}
         </motion.div>
       </motion.div>
 
