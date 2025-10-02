@@ -27,7 +27,7 @@ const jobs = [
 
 export default function Experience() {
 	return (
-		<AnimatedSection id="experience" title="Pengalaman">
+		<AnimatedSection id="experience" title="PENGALAMAN">
 			<div className="relative space-y-12">
 				{/* Enhanced Timeline line with gradient and dots */}
 				<div
