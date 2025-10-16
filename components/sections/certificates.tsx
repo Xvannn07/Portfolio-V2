@@ -48,7 +48,7 @@ const certificates = [
 		date: "10 Juli 2025",
 		category: "UX/UI",
 		description:
-			"Berhasil menyelesaikan kursus dasar desain UI/UX menggunakan Figma.",
+			"Berhasil menyelesaikan webinar kursus dasar desain UI/UX menggunakan Figma.",
 		imageUrl: "/certificates/ui-ux.png",
 		pdfUrl: "/certificates/ui-ux.pdf",
 	},
