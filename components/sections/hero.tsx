@@ -7,7 +7,7 @@ import { useState, useEffect } from "react" // Add React hooks
 
 export default function Hero() {
   const [textIndex, setTextIndex] = useState(0)
-  const texts = ["Seorang Pelajar", "Manusia Biasa", "Makan Nasi"]
+  const texts = ["Seorang Pelajar", "Pengembangan Website"]
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,7 +40,7 @@ export default function Hero() {
             },
           }}
         >
-          {"WEB DEVELOPER • NETWORK ENGINEER • FRONT END & BACK END •".repeat(4)}
+          {"DESIGN • CODE • WEB •".repeat(4)}
         </motion.div>
       </motion.div>
 
@@ -146,6 +146,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
+          {/* Blobs remain unchanged */}
           <motion.div 
             className="accent-blob absolute -left-6 -top-6 h-24 w-24 rotate-6 md:h-28 md:w-28"
             animate={{ 
@@ -170,19 +171,31 @@ export default function Hero() {
               ease: "easeInOut",
             }}
           />
-          <motion.div
-            whileHover={{ scale: 1.03, rotate: 2 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image
-              src="/images/profile.png"
-              alt="Foto formal setengah badan"
-              fill
-              priority
-              className="rounded-xl object-cover shadow-lg ring-1 ring-black/5"
-              sizes="(min-width: 768px) 20rem, 18rem"
-            />
-          </motion.div>
+          
+          {/* Modified Image container */}
+          <div className="relative h-full w-full overflow-hidden rounded-xl ring-1 ring-black/5">
+            <motion.div
+              className="h-full w-full"
+              whileHover={{ 
+                scale: 1.03,
+                rotate: 2,
+                transition: { duration: 0.4, ease: "easeOut" }
+              }}
+            >
+              <Image
+                src="/images/profile.png"
+                alt="Foto formal setengah badan"
+                fill
+                priority
+                className="object-cover"
+                sizes="(min-width: 768px) 20rem, 18rem"
+                style={{ 
+                  backfaceVisibility: "hidden",
+                  WebkitBackfaceVisibility: "hidden"
+                }}
+              />
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
