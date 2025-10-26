@@ -4,7 +4,9 @@ import AnimatedSection from "./section-wrapper"
 import Image from "next/image"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, Tag } from "lucide-react"
+import { ExternalLink, Github, Tag, ChevronDown } from "lucide-react"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 const projects = [
 	{
@@ -70,14 +72,17 @@ const projects = [
 ]
 
 export default function Projects() {
+	const [expandedDesc, setExpandedDesc] = useState<number | null>(null)
+
 	return (
-		<AnimatedSection id="projects" title="PROJEK">
+		<AnimatedSection id="projects" title="Projek">
 			<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" data-stagger>
 				{projects.map((project, idx) => (
 					<Card
 						key={project.title}
 						className="project-card group relative overflow-hidden border-border/40 backdrop-blur-sm"
 						style={{ animationDelay: `${idx * 100}ms` }}
+						onClick={() => setExpandedDesc(expandedDesc === idx ? null : idx)}
 					>
 						{/* Project Image */}
 						<div className="relative aspect-video w-full overflow-hidden">
@@ -88,8 +93,7 @@ export default function Projects() {
 								className="object-cover transition-all duration-500 group-hover:scale-105"
 							/>
 							<div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent opacity-0 transition-opacity group-hover:opacity-100">
-								{/* Overlay Actions */}
-								<div className="absolute bottom-4 left-4 flex gap-2 transition-transform duration-300 group-hover:translate-y-0">
+								<div className="absolute bottom-4 left-4 flex gap-2">
 									{project.demo && (
 										<Button
 											size="sm"
@@ -120,9 +124,36 @@ export default function Projects() {
 							<CardTitle className="text-xl font-semibold tracking-tight">
 								{project.title}
 							</CardTitle>
-							<p className="text-sm text-muted-foreground line-clamp-2">
-								{project.description}
-							</p>
+							<motion.div
+								className="description-wrapper relative"
+								animate={{ height: expandedDesc === idx ? "auto" : "3rem" }}
+								transition={{ duration: 0.3, ease: "easeOut" }}
+							>
+								<motion.p
+									className={`text-sm text-muted-foreground transition-colors ${
+										expandedDesc === idx ? "" : "line-clamp-2"
+									}`}
+									initial={false}
+									animate={{
+										opacity: expandedDesc === idx ? 1 : 0.7,
+									}}
+									transition={{ duration: 0.2 }}
+								>
+									{project.description}
+								</motion.p>
+								{project.description.length > 100 && (
+									<motion.div
+										className="absolute bottom-0 left-0 right-0 flex justify-center"
+										initial={{ opacity: 0 }}
+										animate={{ opacity: expandedDesc === idx ? 0 : 1 }}
+									>
+										<ChevronDown
+											className="h-4 w-4 text-primary animate-bounce"
+											aria-hidden
+										/>
+									</motion.div>
+								)}
+							</motion.div>
 						</CardHeader>
 
 						{/* Project Tags */}
