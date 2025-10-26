@@ -3,7 +3,7 @@
 import type React from "react"
 import AnimatedSection from "./section-wrapper"
 import Image from "next/image"
-import { FaGithub, FaBriefcase, FaGraduationCap } from 'react-icons/fa'
+import { FaGithub, FaBriefcase, FaGraduationCap, FaUser, FaMapMarkerAlt } from 'react-icons/fa'
 import { motion, Variants } from "framer-motion" // Add Variants type
 
 export default function About() {
@@ -80,7 +80,7 @@ export default function About() {
   }
 
   return (
-    <AnimatedSection id="about" title="PERKENALAN">
+    <AnimatedSection id="about" title="Perkenalan">
       <motion.div
         className="grid gap-6 md:grid-cols-5"
         variants={containerVariants}
@@ -129,9 +129,9 @@ export default function About() {
             variants={containerVariants}
           >
             {[
-              { icon: FaGithub, text: "4+ Years Joined Github Community" },
-              { icon: FaBriefcase, text: "1+ Years Experience" },
-              { icon: FaGraduationCap, text: "Networking & Computer Science" }
+              { icon: FaUser, text: "17 Tahun" },
+              { icon: FaMapMarkerAlt, text: "Buleleng, Bali" },
+              { icon: FaGraduationCap, text: "Pelajar SMKN 3 Singaraja" }
             ].map(({ icon: Icon, text }, index) => (
               <motion.div 
                 key={text}
