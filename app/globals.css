@@ -1,0 +1,1389 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.99 0 0); /* Putih bersih */
+  --foreground: oklch(0.18 0 0); /* Arang lembut */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0 0);
+
+  /* Primary - Biru cerah (brand) */
+  --primary: oklch(0.62 0.2 255); /* blue */
+  --primary-foreground: oklch(0.99 0 0);
+
+  /* Secondary - abu sangat muda */
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.18 0 0);
+
+  /* Accent - Teal analog dengan biru (tidak berlawanan) */
+  --accent: oklch(0.76 0.12 200);
+  --accent-foreground: oklch(0.12 0 0);
+
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.56 0 0);
+
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.92 0 0);
+  --input: oklch(0.92 0 0);
+  --ring: oklch(0.72 0 0);
+
+  /* charts dibiarkan netral */
+  --chart-1: oklch(0.65 0.22 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --radius: 0.625rem;
+
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.18 0 0);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* Purple accent token for stronger title frames and tinted surfaces */
+  --accent-2: oklch(0.7 0.22 310); /* purple accent (explicitly requested) */
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+
+  /* Purple accent token for stronger title frames and tinted surfaces */
+  --accent-2: oklch(0.75 0.16 310);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Utility animasi reveal & marquee */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reveal-in {
+  animation: fade-up .6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.marquee {
+  animation: 
+    marquee-left 30s linear infinite,
+    gradient-flow 8s ease infinite;
+  background-size: 200% 200%;
+  letter-spacing: 0.05em;
+  text-shadow: 
+    0 0 40px var(--primary)/10%,
+    0 0 20px var(--accent)/10%;
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Add a hover effect to slow down the animation */
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Add responsive text size adjustments */
+@media (max-width: 768px) {
+  .marquee {
+    font-size: 24vw;
+  }
+}
+
+@keyframes thicken {
+  from {
+    font-variation-settings: "wght" 420;
+  }
+  to {
+    font-variation-settings: "wght" 700;
+  }
+}
+.animate-thicken {
+  animation: thicken .9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@supports not (font-variation-settings: normal) {
+  .animate-thicken {
+    font-weight: 700;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: currentColor;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+/* Animasi pop-in & efek float untuk kartu */
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-pop {
+  animation: pop .6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.card-float {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px color-mix(in oklch, var(--foreground) 8%, transparent);
+}
+
+/* Hint untuk interaksi tahan (long press) di Certificates */
+.longpress-hint {
+  position: absolute;
+  right: 1rem;
+  bottom: .75rem;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  font-size: .75rem;
+  padding: .25rem .5rem;
+  border-radius: .5rem;
+  border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .2s ease, transform .2s ease;
+  pointer-events: none;
+}
+.longpress-hint[data-show="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dekorasi minimal section & stagger sederhana */
+.section-decor {
+  scroll-margin-top: 80px;
+}
+
+[data-stagger] > * {
+  animation: fade-up .6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+[data-stagger] > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+[data-stagger] > *:nth-child(2) {
+  animation-delay: 80ms;
+}
+[data-stagger] > *:nth-child(3) {
+  animation-delay: 160ms;
+}
+[data-stagger] > *:nth-child(4) {
+  animation-delay: 240ms;
+}
+[data-stagger] > *:nth-child(5) {
+  animation-delay: 320ms;
+}
+[data-stagger] > *:nth-child(6) {
+  animation-delay: 400ms;
+}
+[data-stagger] > *:nth-child(7) {
+  animation-delay: 480ms;
+}
+[data-stagger] > *:nth-child(8) {
+  animation-delay: 560ms;
+}
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pop,
+  .reveal-in,
+  .animate-thicken {
+    animation: none !important;
+  }
+  .card-float {
+    transition: none;
+  }
+}
+
+/* Elemen aksen solid di belakang foto (tanpa gradien) */
+.accent-blob {
+  background: var(--accent);
+  border-radius: 24px;
+  filter: drop-shadow(0 8px 24px color-mix(in oklch, var(--accent) 35%, black));
+}
+
+/* title-frame untuk bingkai judul section */
+.title-frame {
+  display: inline-block;
+  padding: .375rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  color: var(--card-foreground);
+  box-shadow: 3px 3px 2px color-mix(in oklch, var(--foreground) 5%, transparent);
+  border-left: 4px solid var(--accent-2);
+  box-shadow: 3px 3px 2px color-mix(in oklch, var(--foreground) 6%, transparent);
+}
+
+/* Objek melayang latar belakang untuk tiap section */
+@keyframes floatY {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes floatX {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.floating-objects {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.floating-objects .blob {
+  position: absolute;
+  width: 120px;
+  height: 80px;
+  border-radius: 24px;
+  background: color-mix(in oklch, var(--primary) 18%, transparent);
+  filter: blur(0.5px) drop-shadow(0 8px 20px color-mix(in oklch, var(--primary) 20%, transparent));
+  animation: floatY 6s ease-in-out infinite;
+  opacity: 0.12;
+}
+.floating-objects .blob:nth-child(1) {
+  top: 8%;
+  left: -12px;
+}
+.floating-objects .blob:nth-child(2) {
+  top: 40%;
+  right: -12px;
+  background: color-mix(in oklch, var(--accent) 22%, transparent);
+  animation-duration: 7.5s;
+}
+.floating-objects .blob:nth-child(3) {
+  bottom: 12%;
+  left: 30%;
+  animation-duration: 8.5s;
+  animation-name: floatX;
+}
+
+/* Slider dasar (Certificates) */
+.slider {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 80%;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1rem;
+  padding-bottom: .5rem;
+}
+@media (min-width: 640px) {
+  .slider {
+    grid-auto-columns: minmax(320px, 40%);
+  }
+}
+.slide {
+  scroll-snap-align: start;
+}
+.slider::-webkit-scrollbar {
+  height: 6px;
+}
+.slider::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* Chain connector (Education) */
+.chain {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 16px;
+  background:
+    radial-gradient(circle at 50% 8px, var(--primary) 3px, transparent 4px) 0 0 / 16px 40px repeat-y,
+    radial-gradient(circle at 50% 28px, var(--primary) 3px, transparent 4px) 0 0 / 16px 40px repeat-y,
+    linear-gradient(var(--border), var(--border)) center / 2px 100% no-repeat;
+  opacity: 0.5;
+}
+
+/* Full-width alternating section surfaces */
+.section-surface {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  inset-block: 0;
+  width: 100vw;
+  background: var(--card); /* default light surface */
+  z-index: 0;
+}
+
+/* Use subtle purple-tinted surfaces for select sections */
+section#skills .section-surface,
+section#certificates .section-surface {
+  background: color-mix(in oklch, var(--sidebar-ring) 20%, var(--background)); /* increase purple tint slightly so section boundaries are clearer */
+}
+
+/* Center a few section titles for visual rhythm */
+section#projects > h2,
+section#certificates > h2 {
+  text-align: center;
+}
+
+/* Add these new animations after your existing animations */
+
+/* Waving hand animation */
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.wave-hand {
+  animation: wave 2.5s ease infinite;
+  transform-origin: 70% 70%;
+}
+
+/* Typewriter effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end);
+  border-right: 2px solid transparent;
+}
+
+/* Floating animations for accent blobs */
+@keyframes floating {
+  0% { transform: translateY(0) rotate(6deg); }
+  50% { transform: translateY(-10px) rotate(8deg); }
+  100% { transform: translateY(0) rotate(6deg); }
+}
+
+@keyframes floating-reverse {
+  0% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(10px) rotate(-8deg); }
+  100% { transform: translateY(0) rotate(-6deg); }
+}
+
+.floating {
+  animation: floating 6s ease-in-out infinite;
+}
+
+.floating-reverse {
+  animation: floating-reverse 7s ease-in-out infinite;
+}
+
+/* 3D perspective container */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.perspective-container:hover img {
+  transform: translateZ(20px) rotate(2deg);
+  box-shadow: 
+    0 5px 15px rgba(0,0,0,0.1),
+    0 15px 40px rgba(0,0,0,0.05);
+}
+
+/* Gradient animation for marquee text */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.marquee {
+  background-size: 200% auto;
+  animation: 
+    marquee-left 45s linear infinite,
+    gradient 15s ease infinite;
+}
+
+/* Enhanced Skill Cards Animation */
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom right,
+    var(--card),
+    color-mix(in oklch, var(--card) 98%, var(--primary))
+  );
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    color-mix(in oklch, var(--primary) 30%, transparent),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-card:hover::before {
+  transform: translateX(100%);
+}
+
+.skill-icon-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.skill-glow {
+  background: radial-gradient(
+    circle at center,
+    color-mix(in oklch, var(--primary) 20%, transparent),
+    transparent 70%
+  );
+  filter: blur(8px);
+  transition: opacity 0.3s ease;
+}
+
+/* Modified animation-pop for skill cards */
+@keyframes skill-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  70% {
+    transform: scale(1.05) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-pop {
+  animation: skill-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+/* Floating animation for skill icons on hover */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-3px) rotate(8deg); }
+}
+
+.skill-card:hover .skill-icon-wrapper svg {
+  animation: float 2s ease infinite;
+}
+
+/* Add subtle pulse effect to the title frame */
+.title-frame {
+  position: relative;
+}
+
+.title-frame::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    45deg,
+    var(--primary),
+    var(--accent),
+    var(--primary)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.title-frame:hover::after {
+  opacity: 1;
+}
+
+/* Hover card animation for logo container */
+.hover-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    color-mix(in oklch, var(--primary) 15%, transparent),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.hover-card:hover::before {
+  transform: translateX(100%);
+}
+
+.hover-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+/* Transform image animation */
+.transform-image {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-card:hover .transform-image {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+/* Text hover animation */
+.hover-text {
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 12px;
+}
+
+.hover-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 0;
+  background: var(--primary);
+  transition: height 0.3s ease, top 0.3s ease;
+}
+
+.hover-text:hover {
+  color: var(--foreground);
+  transform: translateX(4px);
+}
+
+.hover-text:hover::before {
+  height: 100%;
+  top: 0;
+}
+
+/* Stats card animations */
+.stat-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s backwards;
+  background: linear-gradient(
+    135deg,
+    var(--card),
+    color-mix(in oklch, var(--card) 97%, var(--primary))
+  );
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(
+    135deg,
+    var(--card),
+    color-mix(in oklch, var(--card) 94%, var(--primary))
+  );
+  box-shadow: 0 8px 20px -8px color-mix(in oklch, var(--primary) 25%, transparent);
+}
+
+/* Stats icon animation */
+.stat-icon {
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-icon {
+  transform: scale(1.2) rotate(8deg);
+  color: var(--accent);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Simplified Marquee Animation */
+@keyframes simple-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.simple-marquee {
+  white-space: nowrap;
+  animation: simple-scroll 20s linear infinite;
+}
+
+.simple-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .simple-marquee {
+    animation: none;
+  }
+}
+
+/* Project Card Description Animations */
+.project-card {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 20px 40px -20px color-mix(in oklch, var(--primary) 25%, transparent),
+    0 0 0 1px color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+.description-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.description-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2rem;
+  background: linear-gradient(
+    to top,
+    var(--card),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:not(:hover) .description-wrapper::after {
+  opacity: 1;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* Project Tag Animation */
+.project-tag {
+  transition: all 0.2s ease;
+}
+
+.project-tag:hover {
+  transform: translateY(-2px);
+  background-color: color-mix(in oklch, var(--primary) 15%, transparent);
+}
+
+/* Project Button Animation */
+.project-button {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-button {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.project-button:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+/* Project Image Overlay */
+.project-card:hover .project-image-overlay {
+  opacity: 1;
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-tag,
+  .project-button {
+    animation: none;
+    transition: none;
+  }
+}
+/* Education Section Animations */
+
+/* Timeline Chain */
+.timeline-chain {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--primary),
+    var(--primary),
+    transparent
+  );
+  opacity: 0.3;
+}
+
+/* Timeline Node */
+.timeline-node {
+  position: absolute;
+  left: -12px;
+  top: 24px;
+  height: 24px;
+  width: 24px;
+  background: var(--card);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s ease;
+}
+
+.education-card:hover .timeline-node {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px var(--primary);
+}
+
+.timeline-icon {
+  color: var(--primary);
+  height: 12px;
+  width: 12px;
+  transition: transform 0.3s ease;
+}
+
+.education-card:hover .timeline-icon {
+  transform: rotate(12deg);
+}
+
+/* Logo Section */
+.logo-wrapper {
+  position: relative;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.education-card:hover .logo-wrapper {
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+.logo-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    var(--primary),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.education-card:hover .logo-glow {
+  opacity: 0.2;
+}
+
+/* Content Animations */
+.content-header {
+  transition: transform 0.3s ease;
+}
+
+.education-card:hover .content-header {
+  transform: translateX(8px);
+}
+
+/* Achievement Items */
+.achievement-item {
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  background: color-mix(in oklch, var(--primary) 5%, transparent);
+  transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+  background: color-mix(in oklch, var(--primary) 10%, transparent);
+  transform: translateX(8px);
+}
+
+.achievement-arrow {
+  transition: transform 0.3s ease;
+}
+
+.achievement-item:hover .achievement-arrow {
+  transform: translateX(4px);
+}
+
+/* Card Animation */
+.education-card {
+  animation: slideInRight 0.6s ease backwards;
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--primary) 5%, transparent);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hover Effects */
+.education-card:hover {
+  box-shadow: 
+    0 8px 24px color-mix(in oklch, var(--primary) 10%, transparent),
+    0 0 0 1px var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .timeline-chain {
+    left: 8px;
+  }
+  
+  .timeline-node {
+    left: -8px;
+    height: 20px;
+    width: 20px;
+  }
+  
+  .timeline-icon {
+    height: 10px;
+    width: 10px;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .education-card,
+  .timeline-node,
+  .logo-wrapper,
+  .content-header,
+  .achievement-item {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Certificate Card Animations */
+.certificate-card {
+  animation: fadeScale 0.6s ease backwards;
+  border: 1px solid var(--border);
+  transform-origin: center;
+  will-change: transform, box-shadow;
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.certificate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 10px 40px -10px color-mix(in oklch, var(--primary) 15%, transparent),
+    0 0 0 1px color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+/* Certificates Slider Styles */
+.certificates-slider {
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.certificates-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Certificate Slide Animations */
+.certificate-slide {
+  animation: slideIn 0.6s ease backwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Enhanced Certificate Card Styles */
+.certificate-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+.certificate-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px -20px color-mix(in oklch, var(--primary) 25%, transparent),
+    0 0 0 1px color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+/* Navigation Button Animations */
+.certificates-slider button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.certificates-slider button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.certificates-slider button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Certificate Content Animations */
+.certificate-info-item {
+  background: color-mix(in oklch, var(--primary) 5%, transparent);
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+.certificate-card:hover .certificate-info-item {
+  transform: translateX(8px);
+  background: color-mix(in oklch, var(--primary) 10%, transparent);
+}
+
+/* Icon Wrapper Animation */
+.certificate-icon-wrapper {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.certificate-card:hover .certificate-icon-wrapper {
+  transform: rotate(12deg) scale(1.1);
+  background-color: color-mix(in oklch, var(--primary) 15%, transparent);
+}
+
+/* Prevent animations if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .certificate-slide,
+  .certificate-card,
+  .certificate-info-item,
+  .certificate-icon-wrapper {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Certificate Description Styles */
+.description-container {
+  position: relative;
+  min-height: 3rem;
+}
+
+.certificate-description {
+  position: relative;
+  overflow: hidden;
+  max-height: 3.6rem; /* Initially show 2 lines */
+  transition: max-height 0.3s ease;
+}
+
+.certificate-card:hover .certificate-description {
+  max-height: 20rem; /* Allow expansion on hover */
+}
+
+/* Adjust card height to fit expanded content */
+.certificate-slide {
+  height: auto !important;
+  min-height: 28rem;
+}
+
+.certificate-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure content area can grow */
+.certificate-card > div:last-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hide scrollbar but allow scrolling */
+.description-container {
+  scrollbar-width: none;
+}
+
+.description-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Experience Section Styles */
+.experience-card {
+  animation: slideInRight 0.5s ease backwards;
+  transform-origin: left center;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Timeline dot animation */
+.timeline-dot {
+  transition: transform 0.3s ease;
+}
+
+.experience-card:hover .timeline-dot {
+  transform: scale(1.2);
+}
+
+/* Company logo wrapper styles */
+.company-logo-wrapper {
+  position: relative;
+  border: 2px solid transparent;
+  background: var(--card);
+  transition: all 0.3s ease;
+}
+
+.experience-card:hover .company-logo-wrapper {
+  border-color: var(--primary);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px -8px color-mix(in oklch, var(--primary) 25%, transparent);
+}
+
+/* Role title animation */
+.role-title {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.role-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.experience-card:hover .role-title::after {
+  width: 100%;
+}
+
+/* Skill tags animation */
+.skill-tag {
+  cursor: default;
+  transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px -4px color-mix(in oklch, var(--primary) 25%, transparent);
+}
+
+/* Hover card effect */
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 10px 40px -10px color-mix(in oklch, var(--primary) 15%, transparent),
+    0 0 0 1px color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-card,
+  .timeline-dot,
+  .company-logo-wrapper,
+  .skill-tag {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Enhanced Certificate Slider Styles */
+.certificates-slider {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.nav-button {
+  @apply absolute top-1/2 z-10 -translate-y-1/2 rounded-full 
+    bg-background/80 p-3 shadow-lg backdrop-blur-sm transition-all
+    hover:bg-background hover:shadow-xl;
+}
+
+.certificate-card {
+  position: relative;
+  isolation: isolate;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.certificate-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    color-mix(in oklch, var(--primary) 10%, transparent),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.certificate-card:hover::before {
+  transform: translateX(100%);
+}
+
+.certificate-card:hover {
+  transform: translateY(-8px) rotateX(2deg);
+  box-shadow: 
+    0 20px 40px -20px color-mix(in oklch, var(--primary) 25%, transparent),
+    0 0 0 1px color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+.certificate-info-item {
+  @apply rounded-lg bg-primary/5 px-3 py-2 transition-all duration-300;
+}
+
+.certificate-card:hover .certificate-info-item {
+  @apply bg-primary/10 translate-x-2;
+}
+
+.glow-effect {
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    color-mix(in oklch, var(--primary) 15%, transparent),
+    transparent 40%
+  );
+}
+
+/* Certificate Image Effects */
+.certificate-card:hover .certificate-image {
+  transform: translateZ(20px) scale(1.1);
+}
+
+/* Progress Indicator Animation */
+@keyframes progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.progress-active {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--primary);
+  animation: progress 5s linear;
+}
