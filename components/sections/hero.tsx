@@ -40,7 +40,7 @@ export default function Hero() {
             },
           }}
         >
-          {"DESIGN • CODE • WEB •".repeat(4)}
+          {"WEB DEVELOPER • NETWORK ENGINEER • BACKEND •".repeat(4)}
         </motion.div>
       </motion.div>
 
