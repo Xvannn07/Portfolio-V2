@@ -183,7 +183,7 @@ export default function Hero() {
               }}
             >
               <Image
-                src="/images/profile.png"
+                src="/images/faces-portfolio.jpeg"
                 alt="Foto formal setengah badan"
                 fill
                 priority
