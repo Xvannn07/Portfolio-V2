@@ -112,6 +112,7 @@ export default function About() {
           variants={containerVariants}
         >
           {["Halo, saya Made Khrisna Ari Dwi Payana. Saya pelajar di SMKN 3 Singaraja, jurusan Teknik Jaringan dan Komputer Telekomunikasi (TJKT), dan tinggal di Buleleng, Bali.",
+            "Saya memiliki hobi bermain bulu tangkis dengan ekstrarikurer bola tangkis.",
             "Saya sangat menyukai dunia teknologi, terutama pemrograman dan jaringan. Selama lebih dari tiga tahun saya aktif di bidang pemrograman dan pengembangan web, serta memiliki sekitar satu tahun pengalaman di bidang jaringan.",
             "Fokus saya adalah membuat aplikasi yang bermanfaat, khususnya yang memadukan konsep jaringan dan pemrograman."
           ].map((text, index) => (
