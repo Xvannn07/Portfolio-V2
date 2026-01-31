@@ -10,7 +10,7 @@ const jobs = [
 		company: "PT. PALAPA MEDIA PERKASA",
 		period: "2025 - Sekarang",
 		location: "Singaraja, Bali",
-		desc: "Mengelola dan memelihara infrastruktur jaringan perusahaan.",
+		desc: "Menjadi Siswa Teknisi Magang Dengan Menginstalasi jaringan Serta Maintenance.",
 		skills: ["Mikrotik", "Installation Fiber", "Troubleshooting"],
 		companyLogo: "/companies/palapamedia.png",
 	},
