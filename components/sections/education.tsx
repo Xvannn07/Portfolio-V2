@@ -6,7 +6,7 @@ const schools = [
   {
     name: "SDN 1 Banyuning",
     degree: "Sekolah Dasar",
-    year: "2005 - 2020",
+    year: "2015 - 2020",
     logo: "/school/sdn1_banyuning.jpg",
     description: "fokus membaca & menulis dengan lancar, berhitung dasar, rasa ingin tahu, sikap disiplin, kerja kelompok, keterampilan motorik halus (prakarya), kebiasaan belajar.",
     achievements: ["Lulus dengan predikat yang memuaskan", "Aktif dalam organisasi kemahasiswaan"]
